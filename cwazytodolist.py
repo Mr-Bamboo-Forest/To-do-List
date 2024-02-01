@@ -5,20 +5,23 @@ import tkinter.messagebox  # Used for displaying messages in tkinter module
 # Create root window
 root = tkinter.Tk()
 
+# Makes it so that the window can't be resized 
+root.resizable(False,False)
+
 # Create root window background color
-root.configure(bg="white")
+root.configure(bg="#0F0F0F")
 
 # Change the title
-root.title("My Super to do list")
+root.title("Crazy To-do list")
 
 # Change the window size
-root.geometry("410x310")  # Note to use "x" instead of "*" for multiplication (Its col*row)
+root.geometry("270x270") 
 
 # Create an empty list
 tasks = []
 
 # For testing purposes use a default list
-tasks = [""]
+tasks = []
 
 
 # Create functions
@@ -103,11 +106,11 @@ def show_number_of_tasks():
     lbl_display["text"] = msg
 
 
-lbl_title = tkinter.Label(root, text="To-Do-List", bg="white",width=15)  # Label is going to go into "root" window (used for creating labels.)
+lbl_title = tkinter.Label(root, text="To-Do-List", fg="#B9B4C7", bg="#0F0F0F",width=15)  # Label is going to go into "root" window (used for creating labels.)
 # lbl_title.pack()  # Pack gives you a list one after the other (Here you cannot decide where to place the label)
 lbl_title.grid(row=0, column=0)  # Grid helps us make the labels as we want them to look inside the GUI
 
-lbl_display = tkinter.Label(root, text="", bg="white")  # Label is going to go into "root" window
+lbl_display = tkinter.Label(root, text="", bg="#0F0F0F", fg="#B9B4C7")  # Label is going to go into "root" window
 # lbl_display.pack()  # Pack gives you a list one after the other
 lbl_display.grid(row=0, column=1)  # It displays the items of the list one at a time
 
@@ -115,38 +118,38 @@ txt_input = tkinter.Entry(root, width=15)  # It takes in an entry, parent is "ro
 # txt_input.pack()
 txt_input.grid(row=1, column=1)
 
-btn_add_task = tkinter.Button(root, text="Add task", fg="black", bg="white", width=11,command=add_task)  # For creating a button
-# "fg" sets the value of text in button to black and "bg" sets the background color to white
+btn_add_task = tkinter.Button(root, text="Add task", fg="#B9B4C7", bg="#0F0F0F", width=11, command=lambda: [add_task(), show_number_of_tasks()])  # For creating a button
+# "fg" sets the value of text in button to #0F0F0F and "bg" sets the background color to white
 # Here "command" assigns the button to a particular function and "text" adds the text to button
 # btn_add_task.pack()
 btn_add_task.grid(row=1, column=0)
 
-btn_del_all = tkinter.Button(root, text="Delete All", fg="black", bg="white", width=11,command=del_all)  # For creating a button
-# fg sets the value of text in button to black and bg sets the background color to white
+btn_del_all = tkinter.Button(root, text="Delete All", fg="#B9B4C7", bg="#0F0F0F", width=11,command=del_all)  # For creating a button
+# fg sets the value of text in button to #0F0F0F and bg sets the background color to white
 # btn_del_all.pack()
 btn_del_all.grid(row=2, column=0)
 
-btn_del_one = tkinter.Button(root, text="Delete One", fg="black", bg="white", width=11,command=del_one)
+btn_del_one = tkinter.Button(root, text="Delete One", fg="#B9B4C7", bg="#0F0F0F", width=11,command=del_one)
 # btn_del_one.pack()
 btn_del_one.grid(row=3, column=0)
 
-btn_sort_asc = tkinter.Button(root, text="Sort (ASC)", fg="black", bg="white", width=11,command=sort_asc)  # For creating a button
+btn_sort_asc = tkinter.Button(root, text="Sort (ASC)", fg="#B9B4C7", bg="#0F0F0F", width=11,command=sort_asc)  # For creating a button
 # btn_sort_asc.pack()
 btn_sort_asc.grid(row=4, column=0)
 
-btn_sort_desc = tkinter.Button(root, text="Sort (DESC)", fg="black", bg="white", width=11,command=sort_desc)  # For creating a button
+btn_sort_desc = tkinter.Button(root, text="Sort (DESC)", fg="#B9B4C7", bg="#0F0F0F", width=11,command=sort_desc)  # For creating a button
 # btn_sort_desc.pack()
 btn_sort_desc.grid(row=5, column=0)
 
-btn_choose_random = tkinter.Button(root, text="Choose Random" , fg="black", bg="white", width=11,command=choose_random)  # For creating a button
+btn_choose_random = tkinter.Button(root, text="Random" , fg="#B9B4C7", bg="#0F0F0F", width=11,command=choose_random)  # For creating a button
 # btn_choose_random.pack()
 btn_choose_random.grid(row=6, column=0)
 
-btn_number_of_tasks = tkinter.Button(root, text="No. of Tasks", fg="black", bg="white",width=11, command=show_number_of_tasks)  # For creating a button
+btn_number_of_tasks = tkinter.Button(root, text="No. of Tasks", fg="#B9B4C7", bg="#0F0F0F", width=11, command=show_number_of_tasks)  # For creating a button
 # btn_number_of_tasks.pack()
 btn_number_of_tasks.grid(row=7, column=0)
 
-btn_exit = tkinter.Button(root, text="Exit", fg="black", bg="white", width=11,command=exit)
+btn_exit = tkinter.Button(root, text="Exit", fg="#B9B4C7", bg="#0F0F0F", width=11,command=exit)
 # We don't need to create exit its built-in
 # btn_exit.pack()
 btn_exit.grid(row=8, column=0)
@@ -155,7 +158,6 @@ lb_tasks = tkinter.Listbox(root)  # For creating a list (passing root inside the
 # lb_tasks.pack()  # The name of the list is lb_tasks
 lb_tasks.grid(row=2, column=1, rowspan=7)  # It displays the list of items entered by the user
 # Here the "rowspan" property helps the computer to understand the size of lb_tasks we want to set
-
 
 # Start the main events loop
 root.mainloop()
