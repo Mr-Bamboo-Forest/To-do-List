@@ -148,11 +148,12 @@ btn_choose_random.grid(row=6, column=0)
 btn_number_of_tasks = tkinter.Button(root, text="No. of Tasks", fg="#B9B4C7", bg="#2b2b2b", width=11, command=show_number_of_tasks)  # For creating a button
 # btn_number_of_tasks.pack()
 btn_number_of_tasks.grid(row=7, column=0)
+'''def ex():
+    exit()
+btn_exit = tkinter.Button(root, text="Exit", fg="#B9B4C7", bg="#2b2b2b", width=11,command=ex)'''
 
-btn_exit = tkinter.Button(root, text="Exit", fg="#B9B4C7", bg="#2b2b2b", width=11,command=exit)
-# We don't need to create exit its built-in
 # btn_exit.pack()
-btn_exit.grid(row=8, column=0)
+#exit.grid(row=8, column=0)
 
 lb_tasks = tkinter.Listbox(root)  # For creating a list (passing root inside the listbox)
 # lb_tasks.pack()  # The name of the list is lb_tasks
